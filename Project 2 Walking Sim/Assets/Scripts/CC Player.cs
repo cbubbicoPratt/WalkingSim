@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -27,6 +28,8 @@ public class CCPlayer : MonoBehaviour
     private bool interactPressed;
     private bool isRunning;
     private bool isJumping;
+    //this is our event that the other scripts will be listening for
+    public static event Action<NPCData> OnDialogueRequested;
     void Awake()
     {
         cc = GetComponent<CharacterController>();
@@ -178,5 +181,10 @@ public class CCPlayer : MonoBehaviour
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
         //Debug.Log("CC collided with: " + hit.gameObject.name);
+    }
+
+    public void ReuestDialogue(NPCData npcData)
+    {
+        OnDialogueRequested?.Invoke(npcData);
     }
 }
