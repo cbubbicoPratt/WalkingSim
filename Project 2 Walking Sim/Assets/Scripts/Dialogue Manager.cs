@@ -27,6 +27,6 @@ public class DialogueManage : MonoBehaviour
         if (dialoguePanel != null) dialoguePanel.SetActive(true);
         if (displayName != null) displayName.text = npcData.displayName;
         if (placeholderOpeningLine != null) placeholderOpeningLine.text = npcData.placeHolderOpeningLine;
-        Debug.Log($"Dialogue start with {npcData.displayName}: {npcData.placeHolderOpeningLine}")
+        Debug.Log($"Dialogue start with {npcData.displayName}: {npcData.placeHolderOpeningLine}");
     }
 }
