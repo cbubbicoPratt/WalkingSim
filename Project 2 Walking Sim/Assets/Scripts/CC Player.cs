@@ -120,6 +120,7 @@ public class CCPlayer : MonoBehaviour
     {
         //reset reticle image to normal color first
         if (reticleImage != null) reticleImage.color = new Color(0, 0, 0, .7f);
+        currentInteractable = null;
         //make a ray that goes straight out of the camera(center of screen)
         //players eyesight
         Ray ray = new Ray(cameraTransform.position, cameraTransform.forward);
