@@ -70,7 +70,7 @@ public class CCPlayer : MonoBehaviour
     {
         //updating our bool to be true or false if the player is grounded
         bool grounded = cc.isGrounded;
-        Debug.Log("Is Grounded: " + grounded);
+        //Debug.Log("Is Grounded: " + grounded);
 
         //this keeps character controller snapped to ground
         if (grounded && verticalVelocity <= 0)
@@ -147,7 +147,6 @@ public class CCPlayer : MonoBehaviour
         Destroy(currentTarget);
         //clear target reference after destroying
         currentTarget = null;
-
     }
 
     public void OnMove(InputAction.CallbackContext context)
@@ -178,6 +177,6 @@ public class CCPlayer : MonoBehaviour
 
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
-        Debug.Log("CC collided with: " + hit.gameObject.name);
+        //Debug.Log("CC collided with: " + hit.gameObject.name);
     }
 }
