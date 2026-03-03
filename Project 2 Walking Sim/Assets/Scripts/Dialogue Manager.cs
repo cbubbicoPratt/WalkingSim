@@ -24,6 +24,7 @@ public class DialogueManage : MonoBehaviour
             return;
         }
 
+        
         if (dialoguePanel != null) dialoguePanel.SetActive(true);
         if (displayName != null) displayName.text = npcData.displayName;
         if (placeholderOpeningLine != null) placeholderOpeningLine.text = npcData.placeHolderOpeningLine;

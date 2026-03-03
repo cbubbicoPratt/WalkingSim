@@ -11,6 +11,6 @@ public class NPCInteractable : Interactable
         }
 
         //if we are interacting with the npc and it has data then request dialogue
-        ccplayer.ReuestDialogue(npcData);
+        ccplayer.RequestDialogue(npcData);
     }
 }

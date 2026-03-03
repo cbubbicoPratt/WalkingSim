@@ -29,6 +29,8 @@ public class CCPlayer : MonoBehaviour
     private bool interactPressed;
     private Interactable currentInteractable;
 
+    public bool menuOpened = false;
+
     private bool isRunning;
     private bool isJumping;
     //this is our event that the other scripts will be listening for
@@ -49,8 +51,11 @@ public class CCPlayer : MonoBehaviour
     
     void Update()
     {
-        HandleLook();
-        HandleMovement();
+        if (Cursor.lockState == CursorLockMode.Locked)
+        {
+            HandleLook();
+            HandleMovement();
+        }
         CheckInteract();
         HandleInteract();
     }
@@ -154,8 +159,9 @@ public class CCPlayer : MonoBehaviour
         //consume the input so one click only triggers one interactions
         //this changes next frame
         interactPressed = false;
-        if (currentTarget == null) return;
+        if (currentInteractable == null) return;
         currentInteractable.Interact(this);
+        Debug.Log("Handle interact should be running");
     }
 
     public void OnMove(InputAction.CallbackContext context)
@@ -182,6 +188,12 @@ public class CCPlayer : MonoBehaviour
     public void OnInteract(InputAction.CallbackContext context)
     {
         if(context.performed) interactPressed = true;
+        Debug.Log("OnInteracted fired performed: " + context.performed);
+    }
+
+    public void OnMenuOpen(InputAction.CallbackContext context)
+    {
+        if (context.performed) menuOpened = !menuOpened;
     }
 
     private void OnControllerColliderHit(ControllerColliderHit hit)
@@ -189,7 +201,7 @@ public class CCPlayer : MonoBehaviour
         //Debug.Log("CC collided with: " + hit.gameObject.name);
     }
 
-    public void ReuestDialogue(NPCData npcData)
+    public void RequestDialogue(NPCData npcData)
     {
         OnDialogueRequested?.Invoke(npcData);
     }
