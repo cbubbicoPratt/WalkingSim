@@ -3,9 +3,14 @@ using UnityEngine;
 
 public class DialogueManage : MonoBehaviour
 {
-    public GameObject dialoguePanel;
-    public TextMeshProUGUI displayName;
-    public TextMeshProUGUI placeholderOpeningLine;
+    public TextMeshProUGUI displayText;
+
+    public string master = "Welcome!";
+
+    private void Start()
+    {
+        displayText.text = master;
+    }
 
     private void OnEnable()
     {
@@ -16,18 +21,17 @@ public class DialogueManage : MonoBehaviour
     {
         CCPlayer.OnDialogueRequested -= StartDialogue;
     }
-    void StartDialogue(NPCData npcData)
+    void StartDialogue(DialogueData dialogueData)
     {
-        if (npcData == null)
+        if (dialogueData == null)
         {
             Debug.Log("Missing NPC Data");
             return;
         }
 
+        master += dialogueData.dialogue;
         
-        if (dialoguePanel != null) dialoguePanel.SetActive(true);
-        if (displayName != null) displayName.text = npcData.displayName;
-        if (placeholderOpeningLine != null) placeholderOpeningLine.text = npcData.placeHolderOpeningLine;
-        Debug.Log($"Dialogue start with {npcData.displayName}: {npcData.placeHolderOpeningLine}");
+        if (displayText != null) displayText.text = master;
+        Debug.Log($"Dialogue: {dialogueData.dialogue}");
     }
 }

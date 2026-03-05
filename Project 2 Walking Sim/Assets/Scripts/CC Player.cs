@@ -30,11 +30,12 @@ public class CCPlayer : MonoBehaviour
     private Interactable currentInteractable;
 
     public bool menuOpened = false;
+    private MenuManager manager;
 
     private bool isRunning;
     private bool isJumping;
     //this is our event that the other scripts will be listening for
-    public static event Action<NPCData> OnDialogueRequested;
+    public static event Action<DialogueData> OnDialogueRequested;
     void Awake()
     {
         cc = GetComponent<CharacterController>();
@@ -42,6 +43,8 @@ public class CCPlayer : MonoBehaviour
         //optional cursor locking
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+
+        manager = GameObject.FindFirstObjectByType<MenuManager>();
 
         //find the reticle
         reticleImage = GameObject.Find("Reticle").GetComponent<Image>();
@@ -193,7 +196,21 @@ public class CCPlayer : MonoBehaviour
 
     public void OnMenuOpen(InputAction.CallbackContext context)
     {
-        if (context.performed) menuOpened = !menuOpened;
+        if (context.performed)
+        {
+            menuOpened = !menuOpened;
+            DialogueInteractable.ShowTooltip(false);
+        }
+        Cursor.visible = menuOpened;
+        if(menuOpened)
+        {
+            Cursor.lockState = CursorLockMode.None;
+        } 
+        else
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+        }
+            manager.ToggleMenu(menuOpened);
     }
 
     private void OnControllerColliderHit(ControllerColliderHit hit)
@@ -201,8 +218,8 @@ public class CCPlayer : MonoBehaviour
         //Debug.Log("CC collided with: " + hit.gameObject.name);
     }
 
-    public void RequestDialogue(NPCData npcData)
+    public void RequestDialogue(DialogueData dialogueData)
     {
-        OnDialogueRequested?.Invoke(npcData);
+        OnDialogueRequested?.Invoke(dialogueData);
     }
 }
