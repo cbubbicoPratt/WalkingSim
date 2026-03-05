@@ -29,6 +29,7 @@ public class CCPlayer : MonoBehaviour
     private bool interactPressed;
     private Interactable currentInteractable;
 
+    //variables for menu and manager object
     public bool menuOpened = false;
     private MenuManager manager;
 
@@ -44,6 +45,7 @@ public class CCPlayer : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 
+        //find menu manager object
         manager = GameObject.FindFirstObjectByType<MenuManager>();
 
         //find the reticle
@@ -54,13 +56,14 @@ public class CCPlayer : MonoBehaviour
     
     void Update()
     {
+        //we want our player to be frozen if the menu is open
         if (Cursor.lockState == CursorLockMode.Locked)
         {
             HandleLook();
             HandleMovement();
+            CheckInteract();
+            HandleInteract();
         }
-        CheckInteract();
-        HandleInteract();
     }
 
     private void HandleLook()
@@ -180,7 +183,8 @@ public class CCPlayer : MonoBehaviour
     public void OnJump(InputAction.CallbackContext context)
     {
         //when the key is hit, isJumping = true
-        if (context.performed) isJumping = true;
+        //can only jump if the menu isn't open (prevents jumping after space is pressed in the menu and then exiting)
+        if (context.performed && Cursor.lockState == CursorLockMode.Locked) isJumping = true;
     }
 
     public void OnSprint(InputAction.CallbackContext context)
@@ -190,17 +194,21 @@ public class CCPlayer : MonoBehaviour
 
     public void OnInteract(InputAction.CallbackContext context)
     {
-        if(context.performed) interactPressed = true;
+        //prevents interaction if menu is open
+        if(context.performed && Cursor.lockState == CursorLockMode.Locked) interactPressed = true;
         Debug.Log("OnInteracted fired performed: " + context.performed);
     }
 
     public void OnMenuOpen(InputAction.CallbackContext context)
     {
+        //toggle menu either on or off when 'q' is pressed
+        //tooltip to show that the menu has new text
         if (context.performed)
         {
             menuOpened = !menuOpened;
             DialogueInteractable.ShowTooltip(false);
         }
+        //if the menu is open, we want to see and unlock our cursor
         Cursor.visible = menuOpened;
         if(menuOpened)
         {
@@ -210,7 +218,8 @@ public class CCPlayer : MonoBehaviour
         {
             Cursor.lockState = CursorLockMode.Locked;
         }
-            manager.ToggleMenu(menuOpened);
+        //sending message to actually show the menu
+        manager.ToggleMenu(menuOpened);
     }
 
     private void OnControllerColliderHit(ControllerColliderHit hit)

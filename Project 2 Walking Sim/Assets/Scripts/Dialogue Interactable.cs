@@ -8,12 +8,14 @@ public class DialogueInteractable : Interactable
 
     private void Awake()
     {
+        //find the tooltip and set it to inactive (won't find if already inactive
         toolTip = GameObject.FindGameObjectWithTag("Tooltip");
         toolTip.SetActive(false);
     }
 
     public static void ShowTooltip(bool show)
     {
+        //only shows tooltip if we find new dialogue
         if (show)
         {
             toolTip.SetActive(true);

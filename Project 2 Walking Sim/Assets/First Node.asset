@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a35402394803b842b50ca8158a856ff, type: 3}
+  m_Name: First Node
+  m_EditorClassIdentifier: Assembly-CSharp::NPCData
+  lines:
+  - /nGood morning Dave.
+  - /nHow are we today?
+  choices:
+  - choiceText: Fine.
+    nextNode: {fileID: 11400000, guid: d0c94f4caed2372418887261cd0e6024, type: 2}
+  - choiceText: Terrible.
+    nextNode: {fileID: 11400000, guid: 9d5c282ff1c161e4ba8b734860825fb8, type: 2}
+  nextNode: {fileID: 0}
