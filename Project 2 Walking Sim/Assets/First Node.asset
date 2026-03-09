@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: First Node
   m_EditorClassIdentifier: Assembly-CSharp::NPCData
   lines:
-  - /nGood morning Dave.
-  - /nHow are we today?
+  - \nGood morning Dave.
+  - \nHow are we today?
   choices:
   - choiceText: Fine.
     nextNode: {fileID: 11400000, guid: d0c94f4caed2372418887261cd0e6024, type: 2}

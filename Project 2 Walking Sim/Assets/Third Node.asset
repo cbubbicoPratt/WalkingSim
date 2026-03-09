@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Third Node
   m_EditorClassIdentifier: Assembly-CSharp::DialogueData
   lines:
-  - Sorry to hear that Dave.
+  - \nSorry to hear that Dave.
   choices: []
   nextNode: {fileID: 0}
