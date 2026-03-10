@@ -1,23 +1,23 @@
 using TMPro;
+using Unity.VectorGraphics;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Listener : MonoBehaviour
 {
-    public TextMeshProUGUI statusText;
+    public Object scene;
 
     public void OnEnable()
     {
-        ButtonEvent.onButtonPressed += UpdateText;
+        ButtonEvent.onButtonPressed += UpdateScene;
     }
 
     public void OnDisable()
     {
-        ButtonEvent.onButtonPressed -= UpdateText;
+        ButtonEvent.onButtonPressed -= UpdateScene;
     }
-    void UpdateText()
+    void UpdateScene()
     {
-        statusText.text = "Button Pressed";
+        SceneManager.LoadScene(scene.name);
     }
-
-    //button didn't know text exists, but now is "listening"
 }

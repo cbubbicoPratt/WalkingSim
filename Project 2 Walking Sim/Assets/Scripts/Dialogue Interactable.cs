@@ -18,7 +18,8 @@ public class DialogueInteractable : Interactable
 
     private void Start()
     {
-        if (sprite != null) Debug.Log("Found Sprite: " + sprite.name);
+        //make an instance of the triangle sprite to appear over the interactable
+        //if (sprite != null) Debug.Log("Found Sprite: " + sprite.name);
         instantiated = Instantiate(sprite, transform.position + Vector3.up, Quaternion.identity);
     }
 
@@ -36,6 +37,7 @@ public class DialogueInteractable : Interactable
     }
     public override void Interact(CCPlayer ccplayer)
     {
+        //after interacting, remove the sprite permanently
         Destroy(instantiated);
         if(dialogueData == null)
         {
