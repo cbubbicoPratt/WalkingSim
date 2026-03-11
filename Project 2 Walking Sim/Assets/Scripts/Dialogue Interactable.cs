@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class DialogueInteractable : Interactable
 {
+    public string trigger;
+
     private static GameObject toolTip;
     public GameObject sprite;
     public DialogueData dialogueData;
@@ -11,7 +13,7 @@ public class DialogueInteractable : Interactable
 
     private void Awake()
     {
-        //find the tooltip and set it to inactive (won't find if already inactive
+        //find the tooltip and set it to inactive (won't find if already inactive)
         toolTip = GameObject.FindGameObjectWithTag("Tooltip");
         toolTip.SetActive(false);
     }

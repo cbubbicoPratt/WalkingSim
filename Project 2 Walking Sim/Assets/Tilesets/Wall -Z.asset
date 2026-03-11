@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 726938ccaeb007244b0109c643a1b522, type: 3}
-  m_Name: Window
+  m_Name: Wall -Z
   m_EditorClassIdentifier: Assembly-CSharp::PrefabBrush
   m_Cells:
-  - m_GameObject: {fileID: 2192221906814582499, guid: ed4621053d4ccf94d8d0bcfa0c62f72b, type: 3}
-    m_Offset: {x: 0, y: -1, z: -2}
-    m_Scale: {x: 1, y: 0.1, z: 1}
-    m_Orientation: {x: 0.70710677, y: 0, z: 0, w: -0.70710677}
+  - m_GameObject: {fileID: 3408757409518804985, guid: 1a8dfd22ecb34734386f76247dc48287, type: 3}
+    m_Offset: {x: 0, y: -1, z: 1}
+    m_Scale: {x: 1, y: 1, z: 1}
+    m_Orientation: {x: 0, y: 1, z: 0, w: -0.00000004371139}
   m_Size: {x: 1, y: 1, z: 1}
   m_Pivot: {x: 0, y: 0, z: 0}
   m_CanChangeZPosition: 0

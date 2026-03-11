@@ -110,14 +110,14 @@ public class CCPlayer : MonoBehaviour
         Vector3 move = transform.right * moveInput.x * currentSpeed + transform.forward * moveInput.y * currentSpeed;
         
         //if jumping is true and we are grounded
-        if(isJumping && grounded)
-        {
-            verticalVelocity = Mathf.Sqrt(jumpHeight * -2f * gravity);
-        }
-        else
-        {
-            isJumping = false;
-        }
+        //if(isJumping && grounded)
+        //{
+        //    verticalVelocity = Mathf.Sqrt(jumpHeight * -2f * gravity);
+        //}
+        //else
+        //{
+        //    isJumping = false;
+        //}
 
         //apply gravity to every frame
         verticalVelocity += gravity * Time.deltaTime;
@@ -180,12 +180,12 @@ public class CCPlayer : MonoBehaviour
         lookInput = context.ReadValue<Vector2>();
     }
 
-    public void OnJump(InputAction.CallbackContext context)
-    {
-        //when the key is hit, isJumping = true
-        //can only jump if the menu isn't open (prevents jumping after space is pressed in the menu and then exiting)
-        if (context.performed && Cursor.lockState == CursorLockMode.Locked) isJumping = true;
-    }
+    //public void OnJump(InputAction.CallbackContext context)
+    //{
+    //    //when the key is hit, isJumping = true
+    //    //can only jump if the menu isn't open (prevents jumping after space is pressed in the menu and then exiting)
+    //    if (context.performed && Cursor.lockState == CursorLockMode.Locked) isJumping = true;
+    //}
 
     public void OnSprint(InputAction.CallbackContext context)
     {
