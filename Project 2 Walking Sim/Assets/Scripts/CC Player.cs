@@ -37,6 +37,7 @@ public class CCPlayer : MonoBehaviour
     private bool isJumping;
     //this is our event that the other scripts will be listening for
     public static event Action<DialogueData> OnDialogueRequested;
+    public static event Action<string> OnTrigger;
     void Awake()
     {
         cc = GetComponent<CharacterController>();
@@ -144,7 +145,7 @@ public class CCPlayer : MonoBehaviour
         if (Physics.Raycast(ray, out RaycastHit hit, 3f))
         {
             currentInteractable = hit.collider.GetComponentInParent<Interactable>();
-            if (currentInteractable != null && reticleImage != null)
+            if (currentInteractable != null && reticleImage != null && currentInteractable.BroadcastActive())
             {
                 reticleImage.color = Color.red;
                 Debug.DrawRay(cameraTransform.position, cameraTransform.forward * 3, Color.blue);
@@ -230,5 +231,10 @@ public class CCPlayer : MonoBehaviour
     public void RequestDialogue(DialogueData dialogueData)
     {
         OnDialogueRequested?.Invoke(dialogueData);
+    }
+
+    public void BroadcastTrigger(string trigger)
+    {
+        OnTrigger?.Invoke(trigger);
     }
 }

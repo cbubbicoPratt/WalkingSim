@@ -211,7 +211,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6711600}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
@@ -1899,6 +1899,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Frutilla Espacial
       objectReference: {fileID: 0}
+    - target: {fileID: 1555831189832639031, guid: 40e2d1ad554ab1946a2aea4c38597304, type: 3}
+      propertyPath: m_TagString
+      value: Interactable
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1909,6 +1913,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1555831189832639031, guid: 40e2d1ad554ab1946a2aea4c38597304, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2054821578}
+    - targetCorrespondingSourceObject: {fileID: 1555831189832639031, guid: 40e2d1ad554ab1946a2aea4c38597304, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2054821582}
   m_SourcePrefab: {fileID: 100100000, guid: 40e2d1ad554ab1946a2aea4c38597304, type: 3}
 --- !u!1 &1345434529
 GameObject:
@@ -3069,6 +3076,20 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2.3879697, y: 2.3587024, z: 3.965204}
   m_Center: {x: 0.0019904375, y: 0.047375195, z: 1.982602}
+--- !u!114 &2054821582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2054821573}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 586ef1021f9cda04dadac2755828b7a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TriggerScript
+  triggerID: 
+  isActive: 0
 --- !u!1 &2085404314
 GameObject:
   m_ObjectHideFlags: 0
@@ -16372,6 +16393,7 @@ GameObject:
   - component: {fileID: 6041036929317790270}
   - component: {fileID: 5763673824981774088}
   - component: {fileID: 9155892859121513421}
+  - component: {fileID: 9155892859121513422}
   m_Layer: 0
   m_Name: Icosphere.008
   m_TagString: Untagged
@@ -27833,6 +27855,21 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.63965607, y: 0.73802966, z: 0.50136566}
   m_Center: {x: -0.04463482, y: 0.009976866, z: -0.048782673}
+--- !u!114 &9155892859121513422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5772269271653256190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6b3258c86cd075468c63f111976acc8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueInteractable
+  trigger: First
+  sprite: {fileID: 5004588347616445570, guid: 8343897af4da5164aab9fc9aff05a90f, type: 3}
+  dialogueData: {fileID: 11400000, guid: 0a516e114584fca498ca0e966db8bf21, type: 2}
 --- !u!23 &9166444463190701084
 MeshRenderer:
   m_ObjectHideFlags: 0

@@ -15,18 +15,27 @@ public class DialogueInteractable : Interactable
     public string trigger;
     private bool isActive;
 
-    private static GameObject toolTip;
+    private static TextMeshPro toolTip;
     public GameObject sprite;
     public DialogueData dialogueData;
     private GameObject instantiated;
     private bool isInstantiated = false;
 
+    private void OnEnable()
+    {
+        CCPlayer.OnTrigger += CheckTrigger;
+    }
+
+    //private void OnDisable()
+    //{
+        
+    //}
+
     private void Awake()
     {
         //find the tooltip and set it to inactive (won't find if already inactive)
-        toolTip = GameObject.FindGameObjectWithTag("Tooltip");
-        toolTip.SetActive(false);
-        if(trigger == null)
+        toolTip = GameObject.FindGameObjectWithTag("Tooltip").GetComponent<TextMeshPro>();
+        if(string.IsNullOrEmpty(trigger))
         {
             isActive = true;
         } 
@@ -55,18 +64,12 @@ public class DialogueInteractable : Interactable
         //only shows tooltip if we find new dialogue
         if (show)
         {
-            toolTip.SetActive(true);
+            toolTip.gameObject.SetActive(true);
         }
         else
         {
-            toolTip.SetActive(false);
+            toolTip.gameObject.SetActive(false);
         }
-    }
-
-    public void UpdateActive(string triggerWord)
-    {
-        if (triggerWord == null) return;
-        if (triggerWord == trigger) isActive = true;
     }
     public override void Interact(CCPlayer ccplayer)
     {
@@ -81,13 +84,26 @@ public class DialogueInteractable : Interactable
             ShowTooltip(true);
             //if we are interacting with the npc and it has data then request dialogue
             ccplayer.RequestDialogue(dialogueData);
-            if(dialogueData.trigger != null)
-            {
-                UpdateActive(dialogueData.trigger);
-            }
+           
             //we don't want the player interacting with this object again
             //but we don't want it to disappear so we just delete the script
             isActive = false;
+        }
+    }
+
+    public void CheckTrigger(string str)
+    {
+        if (dialogueData == null)
+        {
+            Debug.Log("No dialogue data!");
+            return;
+        }
+        if (!string.IsNullOrEmpty(dialogueData.trigger))
+        {
+            if(str == trigger)
+            {
+                Debug.Log("Strings are the same");
+            }
         }
     }
 }
