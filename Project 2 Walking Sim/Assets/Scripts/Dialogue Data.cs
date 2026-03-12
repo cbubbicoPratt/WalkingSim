@@ -12,6 +12,9 @@ public class DialogueData : ScriptableObject
 
     [Header("If no choices, auto-continue to this next node")]
     public DialogueData nextNode;
+
+    [Header("Trigger for other interactables to activate")]
+    public string trigger;
 }
 
 [System.Serializable]
