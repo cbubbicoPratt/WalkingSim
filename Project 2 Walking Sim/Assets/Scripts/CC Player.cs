@@ -28,6 +28,7 @@ public class CCPlayer : MonoBehaviour
 
     private bool interactPressed;
     private Interactable currentInteractable;
+    private DialogueInteractable currentDialogueInteractable;
 
     //variables for menu and manager object
     public bool menuOpened = false;
@@ -48,6 +49,7 @@ public class CCPlayer : MonoBehaviour
 
         //find menu manager object
         manager = GameObject.FindFirstObjectByType<MenuManager>();
+        currentDialogueInteractable = FindObjectOfType<DialogueInteractable>();
 
         //find the reticle
         reticleImage = GameObject.Find("Reticle").GetComponent<Image>();
@@ -207,7 +209,11 @@ public class CCPlayer : MonoBehaviour
         if (context.performed)
         {
             menuOpened = !menuOpened;
-            DialogueInteractable.ShowTooltip(false);
+            //changed this to a referencing a var instead of class
+            //DialogueInteractable.ShowTooltip(false);
+            
+            currentDialogueInteractable.ShowTooltip(false);
+            //Debug.Log("Menu opened");
         }
         //if the menu is open, we want to see and unlock our cursor
         Cursor.visible = menuOpened;

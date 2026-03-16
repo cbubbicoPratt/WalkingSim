@@ -3088,7 +3088,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 586ef1021f9cda04dadac2755828b7a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TriggerScript
-  triggerID: 
+  triggerID: First
   isActive: 0
 --- !u!1 &2085404314
 GameObject:

@@ -14,8 +14,8 @@ public class DialogueInteractable : Interactable
     //manually inputted string to detect if the interactable needs a trigger to activate
     public string trigger;
     private bool isActive;
-
-    private static TextMeshPro toolTip;
+    
+    private TextMeshProUGUI toolTip;
     public GameObject sprite;
     public DialogueData dialogueData;
     private GameObject instantiated;
@@ -34,11 +34,17 @@ public class DialogueInteractable : Interactable
     private void Awake()
     {
         //find the tooltip and set it to inactive (won't find if already inactive)
-        toolTip = GameObject.FindGameObjectWithTag("Tooltip").GetComponent<TextMeshPro>();
+        toolTip = GameObject.Find("Tooltip").GetComponent<TextMeshProUGUI>();
+        //Debug.Log("Found" + toolTip);
+        
+        //this is controlling on whether or not it is activee. 
+        //not active = no dialogue 
         if(string.IsNullOrEmpty(trigger))
         {
             isActive = true;
         } 
+        //even with unactive you can compare the two trigger strings as long as you press the interact key
+        //but then i think it makes it really hard to know what to interact with but i also dont know why youre building this system
         else
         {
             isActive = false;
@@ -51,24 +57,31 @@ public class DialogueInteractable : Interactable
         {
             instantiated = Instantiate(sprite, transform.position + Vector3.up, Quaternion.identity);
             isInstantiated = true;
+            
         }
     }
 
     public override bool BroadcastActive()
     {
+        bool isItActive = isActive;
+        //Debug.Log("is it active?" +isItActive);
         return isActive;
     }
 
-    public static void ShowTooltip(bool show)
+    //the problem was you made this function static which i didnt catch
+    public void ShowTooltip(bool show)
     {
         //only shows tooltip if we find new dialogue
         if (show)
         {
-            toolTip.gameObject.SetActive(true);
+            //to access the actual text mesh pro component instead of the game object use .enabled
+            //so that means the Tooptip is active in the inspector and i just check off the actual text component
+            toolTip.enabled = true;
+            
         }
         else
         {
-            toolTip.gameObject.SetActive(false);
+            toolTip.enabled = false;
         }
     }
     public override void Interact(CCPlayer ccplayer)
@@ -84,11 +97,24 @@ public class DialogueInteractable : Interactable
             ShowTooltip(true);
             //if we are interacting with the npc and it has data then request dialogue
             ccplayer.RequestDialogue(dialogueData);
-           
+            
+            
             //we don't want the player interacting with this object again
-            //but we don't want it to disappear so we just delete the script
+            //but we don't want it to disappear so we just set the script to inactive
             isActive = false;
+            
+            
         }
+        else if (!isActive)
+        {
+            //you can also just call check trigger here and it works just make sure to turn off OnEnable
+            
+            //CheckTrigger(trigger);
+            //Debug.Log("check trigger");
+        }
+        
+        
+        
     }
 
     public void CheckTrigger(string str)
@@ -96,14 +122,25 @@ public class DialogueInteractable : Interactable
         if (dialogueData == null)
         {
             Debug.Log("No dialogue data!");
-            return;
+            
+        }
+        else
+        {
+            Debug.Log("have data on check trigger");
         }
         if (!string.IsNullOrEmpty(dialogueData.trigger))
         {
-            if(str == trigger)
+            Debug.Log("dialogue data trigger not empty" + dialogueData.trigger);
+            if(str == dialogueData.trigger)
             {
-                Debug.Log("Strings are the same");
+                Debug.Log("Strings are the same" + str + dialogueData.trigger);
+                
+            }
+            else
+            {
+                Debug.Log("Strings are not the same" + str + dialogueData.trigger);
             }
         }
+        
     }
 }
