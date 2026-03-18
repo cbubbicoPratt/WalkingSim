@@ -12,8 +12,8 @@ public class DialogueInteractable : Interactable
 
 
     //manually inputted string to detect if the interactable needs a trigger to activate
-    public string triggerID;
-    public string trigger;
+    private string triggerID;
+    private string trigger;
     private bool isActive;
     
     private TextMeshProUGUI toolTip;
@@ -30,6 +30,8 @@ public class DialogueInteractable : Interactable
 
     private void Awake()
     {
+        triggerID = dialogueData.triggerID;
+        trigger = dialogueData.trigger;
         //find the tooltip and set it to inactive (won't find if already inactive)
         toolTip = GameObject.Find("Tooltip").GetComponent<TextMeshProUGUI>();
         //Debug.Log("Found" + toolTip);

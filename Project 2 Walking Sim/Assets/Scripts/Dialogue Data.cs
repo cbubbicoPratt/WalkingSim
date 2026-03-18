@@ -14,6 +14,9 @@ public class DialogueData : ScriptableObject
     public DialogueData nextNode;
 
     [Header("Trigger for other interactables to activate")]
+    public string triggerID;
+
+    [Header("Trigger for this interactable to activate (leave blank to keep it always on)")]
     public string trigger;
 }
 
