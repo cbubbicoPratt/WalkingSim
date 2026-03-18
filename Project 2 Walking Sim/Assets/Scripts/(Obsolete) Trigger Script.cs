@@ -14,8 +14,8 @@ public class TriggerScript : Interactable
     public override bool BroadcastActive()
     {
         bool isItActive = isActive;
-        Debug.Log("is it active?" +isItActive);
+        //Debug.Log("is it active?" +isItActive);
         return isActive;
-       
+
     }
 }

@@ -49,7 +49,7 @@ public class CCPlayer : MonoBehaviour
 
         //find menu manager object
         manager = GameObject.FindFirstObjectByType<MenuManager>();
-        currentDialogueInteractable = FindObjectOfType<DialogueInteractable>();
+        currentDialogueInteractable = FindFirstObjectByType<DialogueInteractable>();
 
         //find the reticle
         reticleImage = GameObject.Find("Reticle").GetComponent<Image>();

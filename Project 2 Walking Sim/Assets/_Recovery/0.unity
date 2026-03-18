@@ -1913,6 +1913,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1555831189832639031, guid: 40e2d1ad554ab1946a2aea4c38597304, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2054821578}
+    - targetCorrespondingSourceObject: {fileID: 1555831189832639031, guid: 40e2d1ad554ab1946a2aea4c38597304, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2054821582}
   m_SourcePrefab: {fileID: 100100000, guid: 40e2d1ad554ab1946a2aea4c38597304, type: 3}
 --- !u!1 &1345434529
 GameObject:
@@ -2768,37 +2771,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1577199270}
   m_CullTransparentMesh: 1
---- !u!1 &1799868213
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1799868214}
-  m_Layer: 0
-  m_Name: TriggerManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1799868214
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1799868213}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 15.58346, y: 4, z: 3.25957}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1866568526
 GameObject:
   m_ObjectHideFlags: 0
@@ -3080,7 +3052,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6b3258c86cd075468c63f111976acc8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DialogueInteractable
-  triggerID: First
   trigger: 
   sprite: {fileID: 5004588347616445570, guid: 8343897af4da5164aab9fc9aff05a90f, type: 3}
   dialogueData: {fileID: 11400000, guid: af71379f78f8c24439cbc7d52a8a1d54, type: 2}
@@ -3105,6 +3076,20 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2.3879697, y: 2.3587024, z: 3.965204}
   m_Center: {x: 0.0019904375, y: 0.047375195, z: 1.982602}
+--- !u!114 &2054821582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2054821573}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 586ef1021f9cda04dadac2755828b7a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TriggerScript
+  triggerID: First
+  isActive: 0
 --- !u!1 &2085404314
 GameObject:
   m_ObjectHideFlags: 0
@@ -7997,6 +7982,7 @@ GameObject:
   - component: {fileID: 2444120912503737789}
   - component: {fileID: 5232419719355461805}
   - component: {fileID: 5232419719355461806}
+  - component: {fileID: 5232419719355461807}
   m_Layer: 0
   m_Name: Icosphere.010
   m_TagString: Untagged
@@ -15282,6 +15268,20 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.63965607, y: 0.7380295, z: 0.50136554}
   m_Center: {x: -0.044636726, y: 0.009976865, z: -0.04878266}
+--- !u!114 &5232419719355461807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1895618430229079664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 586ef1021f9cda04dadac2755828b7a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TriggerScript
+  triggerID: First
+  isActive: 1
 --- !u!1 &5244246649543701508
 GameObject:
   m_ObjectHideFlags: 0
@@ -16409,7 +16409,6 @@ GameObject:
   - component: {fileID: 5763673824981774088}
   - component: {fileID: 9155892859121513421}
   - component: {fileID: 9155892859121513422}
-  - component: {fileID: 9155892859121513423}
   m_Layer: 0
   m_Name: Icosphere.008
   m_TagString: Untagged
@@ -27883,22 +27882,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6b3258c86cd075468c63f111976acc8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DialogueInteractable
-  triggerID: 
   trigger: First
   sprite: {fileID: 5004588347616445570, guid: 8343897af4da5164aab9fc9aff05a90f, type: 3}
   dialogueData: {fileID: 11400000, guid: 0a516e114584fca498ca0e966db8bf21, type: 2}
---- !u!114 &9155892859121513423
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5772269271653256190}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 77934b24777103049be87f5edeafbc2f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TriggerManager
 --- !u!23 &9166444463190701084
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -28286,4 +28272,3 @@ SceneRoots:
   - {fileID: 1279898463}
   - {fileID: 7036173235288412016}
   - {fileID: 1513311797}
-  - {fileID: 1799868214}

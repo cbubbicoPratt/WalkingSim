@@ -12,6 +12,7 @@ public class DialogueInteractable : Interactable
 
 
     //manually inputted string to detect if the interactable needs a trigger to activate
+    public string triggerID;
     public string trigger;
     private bool isActive;
     
@@ -24,6 +25,7 @@ public class DialogueInteractable : Interactable
     private void OnEnable()
     {
         CCPlayer.OnTrigger += CheckTrigger;
+        TriggerManager.OnActive += SetActive;
     }
 
     //private void OnDisable()
@@ -61,6 +63,11 @@ public class DialogueInteractable : Interactable
         }
     }
 
+    public void SetActive(bool isOn)
+    {
+        isActive = isOn;
+    }
+
     public override bool BroadcastActive()
     {
         bool isItActive = isActive;
@@ -88,6 +95,10 @@ public class DialogueInteractable : Interactable
     {
         if (isActive)
         {
+            if (!string.IsNullOrEmpty(triggerID))
+            {
+                ccplayer.BroadcastTrigger(triggerID);
+            }
             //after interacting, remove the sprite permanently
             Destroy(instantiated);
             if (dialogueData == null)
@@ -130,17 +141,18 @@ public class DialogueInteractable : Interactable
         }
         if (!string.IsNullOrEmpty(dialogueData.trigger))
         {
-            Debug.Log("dialogue data trigger not empty" + dialogueData.trigger);
+            Debug.Log("dialogue data trigger not empty " + dialogueData.trigger);
             if(str == dialogueData.trigger)
             {
-                Debug.Log("Strings are the same" + str + dialogueData.trigger);
-                
+                Debug.Log("Strings are the same " + str + dialogueData.trigger);
+                TriggerManager.UpdateActive(true);
             }
             else
             {
-                Debug.Log("Strings are not the same" + str + dialogueData.trigger);
+                Debug.Log("Strings are not the same " + str + dialogueData.trigger);
             }
         }
         
     }
 }
+
