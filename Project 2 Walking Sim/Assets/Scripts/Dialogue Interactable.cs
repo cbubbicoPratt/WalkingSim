@@ -28,11 +28,6 @@ public class DialogueInteractable : Interactable
         TriggerManager.OnActive += SetActive;
     }
 
-    //private void OnDisable()
-    //{
-        
-    //}
-
     private void Awake()
     {
         //find the tooltip and set it to inactive (won't find if already inactive)
