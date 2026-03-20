@@ -16,7 +16,6 @@ public class EndInteractable : Interactable
     private bool isActive = false;
     private bool startFade = false;
     private bool faded = false;
-    public Object scene;
     public GameObject sprite;
     private GameObject instantiated;
 
@@ -52,7 +51,7 @@ public class EndInteractable : Interactable
     {
         if (fade)
         {
-            SceneManager.LoadScene(scene.name);
+            SceneManager.LoadScene(2);
         }
     }
 
