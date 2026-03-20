@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Second Node
   m_EditorClassIdentifier: Assembly-CSharp::DialogueData
   lines:
-  - \nWonderful news, Dave.
+  - Wonderful news, Dave.\n
   choices: []
   nextNode: {fileID: 0}
+  triggerID: 
+  trigger: 

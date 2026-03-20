@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a35402394803b842b50ca8158a856ff, type: 3}
+  m_Name: PlateNode03
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueData
+  lines:
+  - Look, the sooner you finish here, the sooner they'll come for you and you can
+    go back home.\n
+  - Staying here is only going to make you feel worse.\n
+  - But I suppose even so, I can't convince you out of this state, can I?\n
+  choices:
+  - choiceText: No.
+    nextNode: {fileID: 11400000, guid: 6673a966e4ef6904586d26130059f3e6, type: 2}
+  - choiceText: I'll make my own decisions.
+    nextNode: {fileID: 11400000, guid: 33f656df657bd4148843eeb1a9050c23, type: 2}
+  nextNode: {fileID: 0}
+  triggerID: 
+  trigger: 

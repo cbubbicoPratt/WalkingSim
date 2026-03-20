@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a35402394803b842b50ca8158a856ff, type: 3}
+  m_Name: ShotgunNode05
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueData
+  lines:
+  - You'd do best to take your mind off it then.\n
+  - There's work you still need to do.\n
+  choices: []
+  nextNode: {fileID: 0}
+  triggerID: 
+  trigger: 

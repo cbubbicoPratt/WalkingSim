@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class DoorScript : MonoBehaviour
 {
+    //still needs a trigger but isn't interactable
+    //moves on its own
+
     public string trigger;
     private bool moveUp = false;
     private float speed = 3;
@@ -11,7 +14,6 @@ public class DoorScript : MonoBehaviour
     private void OnEnable()
     {
         CCPlayer.OnTrigger += CheckTrigger;
-        TriggerManager.OnActive += MoveUp;
     }
     private void Awake()
     {
@@ -19,6 +21,7 @@ public class DoorScript : MonoBehaviour
     }
     private void Update()
     {
+        //lerps movement to move upwards
         float step = speed * Time.deltaTime;
         if(moveUp)
         {
@@ -26,11 +29,12 @@ public class DoorScript : MonoBehaviour
         }
     }
 
-    public void MoveUp(bool isOn)
-    {
-        moveUp = isOn;
-    }
+    //public void MoveUp(bool isOn)
+    //{
+    //    moveUp = isOn;
+    //}
 
+    //no listener because there's no dialogue
     public void CheckTrigger(string str)
     {
         if (trigger == null)
@@ -48,7 +52,7 @@ public class DoorScript : MonoBehaviour
             if (str == trigger)
             {
                 Debug.Log("Strings are the same " + str + trigger);
-                TriggerManager.UpdateActive(true);
+                moveUp = true;
             }
             else
             {

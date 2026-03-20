@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a35402394803b842b50ca8158a856ff, type: 3}
+  m_Name: PlateNode02
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueData
+  lines:
+  - You expect me to believe you haven't been hungry in over a day?\n
+  - I think you'll find whatever you're waiting for will come all too soon.\n
+  choices:
+  - choiceText: ...
+    nextNode: {fileID: 11400000, guid: 039ad4c90229f0548abe5a1e4d4fae22, type: 2}
+  - choiceText: Good.
+    nextNode: {fileID: 11400000, guid: b2fb49f8830dec24181a1914bdcf3382, type: 2}
+  nextNode: {fileID: 0}
+  triggerID: 
+  trigger: 

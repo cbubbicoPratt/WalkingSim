@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a35402394803b842b50ca8158a856ff, type: 3}
+  m_Name: ShotgunNode02
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueData
+  lines:
+  - Touchy today, aren't we?\n
+  - In any case, you can't change the past.\n
+  - Coming back here will only make you feel worse.\n
+  choices:
+  - choiceText: Don't act like you know.
+    nextNode: {fileID: 11400000, guid: 2f715cab874a0d34d91bfd8b9c825519, type: 2}
+  - choiceText: I can't let go of it.
+    nextNode: {fileID: 11400000, guid: 6289118494bb1cc43bd41ca32c14d817, type: 2}
+  nextNode: {fileID: 0}
+  triggerID: 
+  trigger: 

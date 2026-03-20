@@ -13,12 +13,15 @@ MonoBehaviour:
   m_Name: First Node
   m_EditorClassIdentifier: Assembly-CSharp::NPCData
   lines:
-  - \nGood morning Dave.
-  - \nHow are we today?
+  - 'Good morning Dave.\n
+
+'
+  - How are we today?\n
   choices:
   - choiceText: Fine.
     nextNode: {fileID: 11400000, guid: d0c94f4caed2372418887261cd0e6024, type: 2}
   - choiceText: Terrible.
     nextNode: {fileID: 11400000, guid: 9d5c282ff1c161e4ba8b734860825fb8, type: 2}
   nextNode: {fileID: 0}
-  trigger: First
+  triggerID: First
+  trigger: 

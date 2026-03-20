@@ -87,7 +87,7 @@ public class DialogueManage : MonoBehaviour
         //clamp index so we never go out of bounds
         lineIndex = Mathf.Clamp(lineIndex, 0, currentNode.lines.Length - 1);
         //show line text
-        master += currentNode.lines[lineIndex];
+        master = currentNode.lines[lineIndex] + master;
         if(lineText != null) lineText.text = master;
     }
 
@@ -134,7 +134,7 @@ public class DialogueManage : MonoBehaviour
             if(lineText != null)
             {
                 //takes the text of our TMP obj and changes it to whatever the current line is (dependent on lineIndex)
-                master += currentNode.lines[lineIndex];
+                master = currentNode.lines[lineIndex] + master;
                 lineText.text = master;
                 return;
             }
@@ -224,6 +224,7 @@ public class DialogueManage : MonoBehaviour
 
     void EndDialogue()
     {
+
         isActive = false; //no longer in dialogue
         currentNode = null; //we don't have a node next (SO)
         lineIndex = 0;

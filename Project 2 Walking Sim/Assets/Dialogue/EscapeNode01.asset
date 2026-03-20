@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a35402394803b842b50ca8158a856ff, type: 3}
+  m_Name: EscapeNode01
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueData
+  lines:
+  - 'How many times do I have to tell you that you can''t escape that way, Dave?\n
+
+'
+  - In fact, why do you even think you have some sort of escape route?\n
+  - We're in the sweet emptiness of space. The only way out for you is to bite the
+    bullet and do your work.\n
+  - But I suppose you're quite invested in your... alternative solution.\n
+  - ...Look Dave.\n
+  - I know you think I'm just saying this for my own self-preservation, but you have
+    plenty to live for.\n
+  - But you just need to get off this station first and you know they won't let you
+    back until you get what they need.\n
+  - We're so close, Dave... So close.\n
+  - Just hang in there a little longer.\n
+  choices: []
+  nextNode: {fileID: 0}
+  triggerID: Eighth
+  trigger: Seventh

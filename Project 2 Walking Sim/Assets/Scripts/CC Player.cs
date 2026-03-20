@@ -49,7 +49,7 @@ public class CCPlayer : MonoBehaviour
 
         //find menu manager object
         manager = GameObject.FindFirstObjectByType<MenuManager>();
-        currentDialogueInteractable = FindFirstObjectByType<DialogueInteractable>();
+        //currentDialogueInteractable = FindFirstObjectByType<DialogueInteractable>();
 
         //find the reticle
         reticleImage = GameObject.Find("Reticle").GetComponent<Image>();
@@ -170,6 +170,10 @@ public class CCPlayer : MonoBehaviour
         interactPressed = false;
         if (currentInteractable == null) return;
         currentInteractable.Interact(this);
+        if(currentInteractable.GetComponent<DialogueInteractable>() != null)
+        {
+            currentDialogueInteractable = currentInteractable.GetComponent<DialogueInteractable>();
+        }
         Debug.Log("Handle interact should be running");
     }
 

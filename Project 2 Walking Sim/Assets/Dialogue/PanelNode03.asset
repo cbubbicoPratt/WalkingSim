@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a35402394803b842b50ca8158a856ff, type: 3}
+  m_Name: PanelNode03
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueData
+  lines:
+  - I would if I wasn't built to tend to you at every waking moment.\n
+  - I'm not much more happy about our little situation than you are, Dave.\n
+  - I'm just trying to make it go away faster for the both of us.\n
+  choices:
+  - choiceText: You don't need freedom.
+    nextNode: {fileID: 11400000, guid: d4d15dd4caf4fb046876625acae89655, type: 2}
+  nextNode: {fileID: 0}
+  triggerID: 
+  trigger: 

@@ -15,21 +15,16 @@ public class DialogueInteractable : Interactable
     private string triggerID;
     private string trigger;
     private bool isActive;
-    
+
     private TextMeshProUGUI toolTip;
     public GameObject sprite;
     public DialogueData dialogueData;
     private GameObject instantiated;
     private bool isInstantiated = false;
 
-    private void OnEnable()
-    {
-        CCPlayer.OnTrigger += CheckTrigger;
-        TriggerManager.OnActive += SetActive;
-    }
-
     private void Awake()
     {
+        //getting triggerID and trigger stored in dialogueData
         triggerID = dialogueData.triggerID;
         trigger = dialogueData.trigger;
         //find the tooltip and set it to inactive (won't find if already inactive)
@@ -38,7 +33,7 @@ public class DialogueInteractable : Interactable
         
         //this is controlling on whether or not it is activee. 
         //not active = no dialogue 
-        if(string.IsNullOrEmpty(trigger))
+        if(string.IsNullOrEmpty(trigger) || GetComponent<TriggerManager>() == null)
         {
             isActive = true;
         } 
@@ -52,6 +47,7 @@ public class DialogueInteractable : Interactable
 
     private void Update()
     {
+        //only instantiate if interactable is active and we haven't instantiated before
         if(isActive && !isInstantiated)
         {
             instantiated = Instantiate(sprite, transform.position + Vector3.up, Quaternion.identity);
@@ -60,11 +56,13 @@ public class DialogueInteractable : Interactable
         }
     }
 
+    //basic function to set interactable as active
     public void SetActive(bool isOn)
     {
         isActive = isOn;
     }
 
+    //so that we can see if interactable is active for things like cursor color in CCPlayer
     public override bool BroadcastActive()
     {
         bool isItActive = isActive;
@@ -92,7 +90,8 @@ public class DialogueInteractable : Interactable
     {
         if (isActive)
         {
-            if (!string.IsNullOrEmpty(triggerID))
+            //only broadcast trigger if there is one attached
+            if(!string.IsNullOrEmpty(triggerID))
             {
                 ccplayer.BroadcastTrigger(triggerID);
             }
@@ -124,32 +123,6 @@ public class DialogueInteractable : Interactable
         
         
     }
-
-    public void CheckTrigger(string str)
-    {
-        if (dialogueData == null)
-        {
-            Debug.Log("No dialogue data!");
-            
-        }
-        else
-        {
-            Debug.Log("have data on check trigger");
-        }
-        if (!string.IsNullOrEmpty(dialogueData.trigger))
-        {
-            Debug.Log("dialogue data trigger not empty " + dialogueData.trigger);
-            if(str == dialogueData.trigger)
-            {
-                Debug.Log("Strings are the same " + str + dialogueData.trigger);
-                TriggerManager.UpdateActive(true);
-            }
-            else
-            {
-                Debug.Log("Strings are not the same " + str + dialogueData.trigger);
-            }
-        }
-        
-    }
+    
 }
 

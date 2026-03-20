@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a35402394803b842b50ca8158a856ff, type: 3}
+  m_Name: GrenadeNode01
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueData
+  lines:
+  - 'Honestly, Dave.\n
+
+'
+  - Could you have any less regard for your own safety?.\n
+  - That grenade is active you know.\n
+  choices:
+  - choiceText: I know.
+    nextNode: {fileID: 11400000, guid: 0c058bf3f39771b47b1875cff6dbec7d, type: 2}
+  - choiceText: It doesn't matter.
+    nextNode: {fileID: 11400000, guid: 4331956b6a96dc841b219472feed66e8, type: 2}
+  nextNode: {fileID: 0}
+  triggerID: Third
+  trigger: Second
